@@ -1,0 +1,8 @@
+<div class="backdrop-blur-sm backdrop"></div>
+<div class="flex flex-col bg-white box text-center items-center justify-center gap-10 p-10">
+    <div>Are you sure, you want to delete "{{ name }}" ?</div>
+    <div class="flex gap-6">
+        <button type="button" class="btn-primary max-w-[120px]" (click)="onClose(true)">yes</button>
+        <button type="button" class="btn-primary max-w-[120px]" (click)="onClose(false)">cancel</button>
+    </div>
+</div>

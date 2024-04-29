@@ -1,0 +1,86 @@
+<div class="backdrop-blur-sm backdrop"></div>
+<div
+  class="flex flex-col bg-white box text-center items-center justify-center gap-10 p-10"
+>
+  <div>Let's add snack!</div>
+  <form [formGroup]="addSnackForm" (submit)="onSubmit()" class="w-[80%]">
+    <div class="flex items-center justify-between">
+      <label
+        for="name"
+        class="block text-sm font-medium leading-6 text-gray-900"
+        >Name:</label
+      >
+    </div>
+    <div class="mt-2">
+      <input
+        id="name"
+        formControlName="name"
+        type="text"
+        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+      />
+    </div>
+    <div class="flex items-center justify-between">
+      <label
+        for="imgUrl"
+        class="block text-sm font-medium leading-6 text-gray-900"
+        >Image URL:</label
+      >
+    </div>
+    <div class="mt-2">
+      <input
+        id="imgUrl"
+        formControlName="imgUrl"
+        type="text"
+        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+      />
+    </div>
+    <div class="flex items-center justify-between">
+      <label for="cal" class="block text-sm font-medium leading-6 text-gray-900"
+        >Calories:</label
+      >
+    </div>
+    <div class="mt-2">
+      <input
+        id="cal"
+        formControlName="cal"
+        type="text"
+        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+      />
+    </div>
+    <div class="flex items-center justify-between">
+      <label
+        for="rarity"
+        class="block text-sm font-medium leading-6 text-gray-900"
+        >Rarity:</label
+      >
+    </div>
+    <div class="mt-2">
+      <input
+        id="rarity"
+        formControlName="rarity"
+        type="text"
+        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+      />
+    </div>
+    <div class="flex items-center justify-between">
+      <label
+        for="desc"
+        class="block text-sm font-medium leading-6 text-gray-900"
+        >Description:</label
+      >
+    </div>
+    <div class="mt-2">
+      <textarea
+        id="desc"
+        formControlName="desc"
+        type="text"
+        rows="3"
+        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+      ></textarea>
+    </div>
+    <div class="flex gap-6 h">
+      <button type="submit" class="btn-primary max-w-[120px]">add</button>
+      <button type="button" class="btn-primary max-w-[120px]" (click)="onClose()">cancel</button>
+    </div>
+  </form>
+</div>

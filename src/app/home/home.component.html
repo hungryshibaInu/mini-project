@@ -1,0 +1,46 @@
+<div *ngIf="!isLoading" class="h-[93vh] p-10">
+  <div class="flex h-[15vh] font-bold text-5xl text-center items-center justify-center">
+        Welcome to SRS Pantry Wiki!
+    </div>
+  <div class="h-[73vh] flex content-center text-center gap-10">
+    <div class="card">
+      <div class="w-1/3">
+        <p class="bungasai">Best seller!</p>
+        <p>Campus</p>
+      </div>
+      <img
+        class="w-2/3 h-2/3 max-h-[400px]"
+        src="../assets/images/campus.png"
+        style="object-fit: contain"
+        alt=""
+      />
+    </div>
+    <div *ngIf="newItem; else defaultNewItem" class="card">
+      <img
+        class="w-2/3 h-2/3 max-h-[400px]"
+        [src]="newItem?.imgUrl.stringValue"
+        style="object-fit: contain"
+        alt=""
+      />
+      <div class="w-1/3">
+        <p class="bungasai">New Item!</p>
+        <p>{{ newItem?.name.stringValue }}</p>
+      </div>
+    </div>
+    <ng-template #defaultNewItem>
+      <div *ngIf="newItem" class="card">
+        <img
+          class="w-2/3 h-2/3 max-h-[400px]"
+          src="../assets/images/ff.png"
+          style="object-fit: contain"
+          alt=""
+        />
+        <div class="w-1/3">
+          <p class="bungasai">New Item!</p>
+          <p>FF-tomato</p>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>

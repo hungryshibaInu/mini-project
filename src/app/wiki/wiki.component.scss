@@ -1,0 +1,7 @@
+.card {
+  @apply bg-gray-100 p-5 rounded-xl shadow-lg border-black;
+
+  &:hover {
+    @apply bg-primary text-white; 
+  }
+}

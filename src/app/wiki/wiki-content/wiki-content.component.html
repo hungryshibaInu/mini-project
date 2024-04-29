@@ -1,0 +1,103 @@
+<div class="p-10" style="overflow: auto">
+  <button class="flex gap-2" (click)="onClickBack()">
+    <img
+      src="../../../assets/icons/back_arrow.png"
+      class="img-fluid rounded-top h-7"
+      alt=""
+    />
+    <div class="text-lg">return to wiki...</div>
+  </button>
+  <div class="flex mt-5 gap-x-10">
+    <div class="flex flex-col w-3/12">
+      <div class="flex bg-slate-100 h-[400px] rounded-2xl items-center">
+        <img
+          [src]="snackDetail?.imgUrl.stringValue"
+          class="object-contain max-h-[400px] rounded-top w-full hover:max-h-[600px]"
+          alt=""
+        />
+      </div>
+      <div
+        *ngIf="!editMode; else editAction"
+        class="flex gap-6 self-center mt-5"
+      >
+        <button
+          type="button"
+          class="btn-primary w-[100px] self-center mt-5"
+          (click)="editMode = true"
+        >
+          edit
+        </button>
+        <button
+          type="button"
+          class="btn-primary w-[100px] self-center mt-5"
+          (click)="onDeleteSnack()"
+        >
+          delete
+        </button>
+      </div>
+      <ng-template #editAction>
+        <div class="flex gap-6 self-center mt-5">
+          <button type="submit" class="btn-primary w-[100px] self-center mt-5" (click)="onSubmit()">
+            save
+          </button>
+          <button
+            type="button"
+            class="btn-primary w-[100px] self-center mt-5"
+            (click)="editMode = false"
+          >
+            cancel
+          </button>
+        </div>
+      </ng-template>
+    </div>
+    <div class="flex flex-col gap-6 w-9/12">
+      <div class="text-2xl">{{ snackDetail?.name.stringValue }}</div>
+      <ng-container *ngIf="!editMode; else edit">
+        <div>rarity: {{ snackDetail?.rarity.integerValue }}</div>
+        <div>calories: {{ snackDetail?.cal.integerValue }} kcals</div>
+        <div class="max-w-[800px]">
+          details: {{ snackDetail?.desc.stringValue }}
+        </div>
+      </ng-container>
+      <ng-template #edit>
+        <form [formGroup]="snackEditForm" class="flex flex-col gap-4">
+          <div class="flex w-full items-center">
+            <label for="rarity">rarity:</label>
+            <input
+              id="rarity"
+              formControlName="rarity"
+              type="text"
+            />
+          </div>
+          <div class="flex w-full items-center">
+            <label for="cal">calories:</label>
+            <input
+              id="cal"
+              formControlName="cal"
+              type="text"
+            />
+            <div class="ml-2">kcals</div>
+          </div>
+          <div class="flex w-full items-center">
+            <label for="desc">details:</label>
+            <textarea
+              id="desc"
+              formControlName="desc"
+              type="text"
+              rows="3"
+            ></textarea>
+          </div>
+          <div class="flex w-full items-center">
+            <label for="imgUrl">image URL:</label>
+            <input
+              id="imgUrl"
+              formControlName="imgUrl"
+              type="text"
+            />
+          </div>
+        </form>
+      </ng-template>
+    </div>
+  </div>
+</div>
+<ng-template appPlaceholder></ng-template>

@@ -1,0 +1,12 @@
+input, textarea {
+  @apply w-[85%] max-w-[400px] min-w-[200px];
+
+  &#rarity,
+  &#cal {
+    @apply max-w-[100px] min-w-[50px];
+  }
+}
+
+label {
+  @apply w-[15%];
+}

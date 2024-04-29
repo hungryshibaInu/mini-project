@@ -1,0 +1,34 @@
+<div *ngIf="snacks" class="p-10" style="overflow: auto;">
+  <div class="h-[40vh] flex content-center">
+    <div class="w-2/5">
+        <div class="text-3xl mb-5">Pantry Info.</div>
+        <div class="text-xl">refill round: {{ generalInfo?.fields.refillRound.stringValue }}</div>
+        <div class="text-xl">open hours: {{ generalInfo?.fields.openHr.stringValue }}</div>
+        <div class="text-xl">coffee machine hours: {{ generalInf?.fields.coffee.stringValue }}</div>
+    </div>
+    <div class="w-3/5 bg-slate-500"></div>
+  </div>
+  <div class="mt-10">
+    <div class="my-5 flex justify-between">
+        <div class="text-xl">Snack: </div>
+        <button class="btn-primary" (click)="onAddSnack()">+ add</button>
+    </div>
+    <div class="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-8 text-center">
+      <a *ngFor="let item of snacks" class="flex card" (click)="onClickSnack(item.id)" style="cursor: pointer;">
+          <img [src]="item.imgUrl.stringValue" class="img-fluid rounded-top w-3/5" [alt]="item.name.stringValue">
+          <div class="self-center w-2/5 text-lg">{{ item.name.stringValue }}</div>
+      </a>
+      <a *ngFor="let item of snacks" class="flex card" (click)="onClickSnack(item.id)" style="cursor: pointer;">
+          <img [src]="item.imgUrl.stringValue" class="img-fluid rounded-top w-3/5" [alt]="item.name.stringValue">
+          <div class="self-center w-2/5 text-lg">{{ item.name.stringValue }}</div>
+      </a>
+      <a *ngFor="let item of snacks" class="flex card" (click)="onClickSnack(item.id)" style="cursor: pointer;">
+          <img [src]="item.imgUrl.stringValue" class="img-fluid rounded-top w-3/5" [alt]="item.name.stringValue">
+          <div class="self-center w-2/5 text-lg">{{ item.name.stringValue }}</div>
+      </a>
+      
+    </div>
+  </div>
+</div>
+<ng-template appPlaceholder></ng-template>
+<app-loading-spinner *ngIf="!snacks"></app-loading-spinner>
